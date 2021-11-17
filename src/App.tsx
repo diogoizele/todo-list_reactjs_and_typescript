@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/styles";
 
-function App() {
+import NewTodo from "./components/NewTodo/NewTodo";
+import TodoList from "./components/Todos/TodoList";
+import { TodosProvider } from "./context/todo-context";
+
+const useStyles = makeStyles({
+  container: {
+    backgroundColor: "#212121",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+
+  button: {
+    backgroundColor: "#CC0000",
+    color: "white",
+    "&:hover": { backgroundColor: "#DD0000" },
+  },
+});
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodosProvider>
+      <Container maxWidth="xl" className={classes.container}>
+        <NewTodo />
+        <TodoList />
+      </Container>
+    </TodosProvider>
   );
-}
+};
 
 export default App;
