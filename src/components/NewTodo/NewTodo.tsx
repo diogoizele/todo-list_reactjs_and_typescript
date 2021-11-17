@@ -29,7 +29,27 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    width: "40%",
+    width: "50%",
+    textAlign: "center",
+
+    "& h1": {
+      marginTop: 0,
+      fontWeight: 300,
+      fontSize: "3rem",
+      color: "#212121",
+    },
+
+    "@media (max-width: 800px)": {
+      width: "80%",
+      padding: '1rem',
+
+      "& h1": {
+        marginTop: 0,
+        fontWeight: 300,
+        fontSize: "2rem",
+        color: "#212121",
+      },
+    },
   },
 
   textField: {
@@ -37,6 +57,10 @@ const useStyles = makeStyles({
     maxWidth: "30rem",
     width: "80%",
     margin: "1rem 0 1rem 0",
+
+    "@media (max-width: 800px)": {
+      width: "100%",
+    },
   },
 });
 
@@ -197,6 +221,7 @@ const NewTodo: React.FC = () => {
 
   return (
     <form onSubmit={submitFormHandler} className={classes.form}>
+      <h1>Lista de Tarefas</h1>
       {formIsVisible ? (
         <React.Fragment>
           <TextField

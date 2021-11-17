@@ -16,6 +16,11 @@ const useStyles = makeStyles({
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "center",
+
+    "@media (max-width: 800px)": {
+      width: "80%",
+      padding: '2rem .5rem'
+    },
   },
 });
 

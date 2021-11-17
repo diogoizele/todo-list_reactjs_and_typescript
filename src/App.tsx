@@ -12,7 +12,13 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+  
+  
+    "@media (max-width: 800px)": {
+      padding: 0
+    },
   },
+
 
   button: {
     backgroundColor: "#CC0000",

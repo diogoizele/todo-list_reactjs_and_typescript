@@ -14,6 +14,10 @@ const useStyles = makeStyles({
     margin: "1rem",
     position: "relative",
 
+    "@media (max-width: 800px)": {
+      width: "100%",
+    },
+
     "& button": {
       position: "absolute",
       top: "1rem",
