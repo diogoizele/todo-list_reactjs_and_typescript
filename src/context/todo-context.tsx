@@ -27,27 +27,28 @@ export const TodosProvider: React.FC = (props) => {
 
   useEffect(() => {
     const localStorageTodos = JSON.parse(
-      localStorage.getItem("todoList") || "{}"
+      localStorage.getItem("todoList") || "[]"
     );
     setTodos(localStorageTodos);
   }, []);
 
   const addTodoHandler = (newTodo: Todo) => {
-    setTodos((prevTodos) => {
-      setTodoInLocalStorage(prevTodos.concat(newTodo));
-      return prevTodos.concat(newTodo);
+    setTodos((prevTodos: Todo[]) => {
+      const newArray = prevTodos.concat(newTodo);
+      setTodoInLocalStorage(newArray);
+      return newArray;
     });
   };
 
   const removeTodoHandler = (id: string) => {
-    setTodos((prevTodos) => {
+    setTodos((prevTodos: Todo[]) => {
       return prevTodos.filter((todo) => todo.id !== id);
     });
     setTodoInLocalStorage(todos);
   };
 
   const toggleTodoHandler = (id: string, status: boolean) => {
-    setTodos((prevTodos) => {
+    setTodos((prevTodos: Todo[]) => {
       const todo = prevTodos.find((todo) => todo.id === id);
       const todoIndex: number = prevTodos.findIndex((todo) => todo.id === id);
 
